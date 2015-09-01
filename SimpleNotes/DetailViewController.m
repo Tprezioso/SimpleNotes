@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 
 @interface DetailViewController ()
+- (IBAction)shareButton:(id)sender;
 
 @end
 
@@ -51,6 +52,15 @@
     }
     [Note saveNotes];
     [[Note getTable] reloadData];
+}
+
+- (IBAction)shareButton:(id)sender
+{
+    Note *currentNote = [[Note getAllNotes] objectAtIndex:[Note getCurrentNoteIndex]];
+    currentNote.note = self.detailDescriptionLabel.text;
+    NSArray *objectToShare = @[currentNote.note];
+    UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:objectToShare applicationActivities:nil];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 @end

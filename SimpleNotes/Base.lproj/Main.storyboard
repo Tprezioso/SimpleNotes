@@ -83,7 +83,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Note" id="cra-N8-TIN"/>
+                    <navigationItem key="navigationItem" title="Note" id="cra-N8-TIN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="u9Z-6p-KuF">
+                            <connections>
+                                <action selector="shareButton:" destination="Ah7-4n-0Wa" id="drh-Vb-ejn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="detailDescriptionLabel" destination="yfc-Dh-hP6" id="pWM-On-zfB"/>
                     </connections>

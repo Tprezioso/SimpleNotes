@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>BF649EFF-379C-4277-812D-51BF9AF6DB72</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>SimpleNotes</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>20EC57C5ABB8B64F911424820D3CF9477085C26C</key>
 		<string>github.com:Tprezioso/SimpleNotes.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SimpleNotes.xcodeproj/project.xcworkspace</string>
+	<string>SimpleNotes.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>20EC57C5ABB8B64F911424820D3CF9477085C26C</key>

@@ -206,6 +206,9 @@
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 6JBM5ZNF6C;
 						SystemCapabilities = {
+							com.apple.WAC = {
+								enabled = 0;
+							};
 							com.apple.iCloud = {
 								enabled = 0;
 							};
@@ -466,6 +469,7 @@
 				9F62E1361B94DCAE00DDAD24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9F62E1371B94DCAE00DDAD24 /* Build configuration list for PBXNativeTarget "SimpleNotesTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +478,7 @@
 				9F62E1391B94DCAE00DDAD24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
