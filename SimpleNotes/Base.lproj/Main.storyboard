@@ -74,7 +74,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfc-Dh-hP6">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yfc-Dh-hP6">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -82,6 +82,12 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yfc-Dh-hP6" firstAttribute="top" secondItem="MMQ-IT-qOo" secondAttribute="top" id="8I2-59-LpG"/>
+                            <constraint firstItem="yfc-Dh-hP6" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leading" id="Ehh-rK-HBK"/>
+                            <constraint firstAttribute="trailing" secondItem="yfc-Dh-hP6" secondAttribute="trailing" id="IdZ-dU-S7e"/>
+                            <constraint firstItem="yfc-Dh-hP6" firstAttribute="bottom" secondItem="a0L-h9-sNL" secondAttribute="top" id="kfZ-mG-1L1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Note" id="cra-N8-TIN">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="u9Z-6p-KuF">
