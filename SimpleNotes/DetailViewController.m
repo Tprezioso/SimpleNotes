@@ -30,7 +30,7 @@
 - (void)configureView {
     // Update the user interface for the detail item.
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = self.detailItem.note;
+        self.detailTextView.text = self.detailItem.note;
     }
 }
 
@@ -38,7 +38,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self configureView];
-    [self.detailDescriptionLabel becomeFirstResponder];
+    [self.detailTextView becomeFirstResponder];
     [self menuItemAdditions];
 }
 
@@ -47,14 +47,14 @@
     [super viewDidDisappear:animated];
 
     Note *currentNote = [[Note getAllNotes] objectAtIndex:[Note getCurrentNoteIndex]];
-    currentNote.note = self.detailDescriptionLabel.text;
+    currentNote.note = self.detailTextView.text;
     [[Note getAllNotes] setObject:currentNote atIndexedSubscript:[Note getCurrentNoteIndex]];
-    if ([self.detailDescriptionLabel.text isEqualToString:@""]) {
+    if ([self.detailTextView.text isEqualToString:@""]) {
         [[Note getAllNotes]removeObjectAtIndex:[Note getCurrentNoteIndex]];
     }
     [Note saveNotes];
     [[Note getTable] reloadData];
-    NSLog(@"%@",self.detailDescriptionLabel.text);
+    NSLog(@"%@",self.detailTextView.text);
 }
 
 - (void)menuItemAdditions
@@ -68,23 +68,23 @@
 
 - (void)boldText:(id)selector
 {
-    [self.detailDescriptionLabel toggleBoldface:self.detailDescriptionLabel.text];
+    [self.detailTextView toggleBoldface:self.detailTextView.text];
 }
 
 - (void)italicText:(id)selector
 {
-    [self.detailDescriptionLabel toggleItalics:self.detailDescriptionLabel.text];
+    [self.detailTextView toggleItalics:self.detailTextView.text];
 }
 
 - (void)underlineText:(id)selector
 {
-    [self.detailDescriptionLabel toggleUnderline:self.detailDescriptionLabel.text];
+    [self.detailTextView toggleUnderline:self.detailTextView.text];
 }
 
 - (IBAction)shareButton:(id)sender
 {
     Note *currentNote = [[Note getAllNotes] objectAtIndex:[Note getCurrentNoteIndex]];
-    currentNote.note = self.detailDescriptionLabel.text;
+    currentNote.note = self.detailTextView.text;
     NSArray *objectToShare = @[currentNote.note];
     UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:objectToShare applicationActivities:nil];
     [self presentViewController:controller animated:YES completion:nil];
