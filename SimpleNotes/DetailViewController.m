@@ -7,10 +7,11 @@
 //
 
 #import "DetailViewController.h"
+#import <CoreText/CoreText.h>
 
 @interface DetailViewController ()
 - (IBAction)shareButton:(id)sender;
-
+@property (strong, nonatomic)UIImage *chosenImage;
 @end
 
 @implementation DetailViewController
@@ -53,6 +54,7 @@
     }
     [Note saveNotes];
     [[Note getTable] reloadData];
+    NSLog(@"%@",self.detailDescriptionLabel.text);
 }
 
 - (void)menuItemAdditions
@@ -74,7 +76,7 @@
     [self.detailDescriptionLabel toggleItalics:self.detailDescriptionLabel.text];
 }
 
--(void)underlineText:(id)selector
+- (void)underlineText:(id)selector
 {
     [self.detailDescriptionLabel toggleUnderline:self.detailDescriptionLabel.text];
 }
