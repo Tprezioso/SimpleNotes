@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Note.h"
 
-@interface DetailViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) Note *detailItem;
 @property (weak, nonatomic) IBOutlet UITextView *detailDescriptionLabel;
