@@ -38,6 +38,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     [self configureView];
     [self.detailDescriptionLabel becomeFirstResponder];
+    [self menuItemAdditions];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -52,6 +53,17 @@
     }
     [Note saveNotes];
     [[Note getTable] reloadData];
+}
+
+- (void)menuItemAdditions
+{
+    UIMenuItem *menuAddition = [[UIMenuItem alloc] initWithTitle:@"Bullets" action:@selector(addBullets)];
+    [[UIMenuController sharedMenuController] setMenuItems:[NSArray arrayWithObjects:menuAddition, nil]];
+}
+
+- (void)addBullets
+{
+    
 }
 
 - (IBAction)shareButton:(id)sender
