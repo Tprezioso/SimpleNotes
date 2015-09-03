@@ -57,13 +57,26 @@
 
 - (void)menuItemAdditions
 {
-    UIMenuItem *menuAddition = [[UIMenuItem alloc] initWithTitle:@"Bullets" action:@selector(addBullets)];
-    [[UIMenuController sharedMenuController] setMenuItems:[NSArray arrayWithObjects:menuAddition, nil]];
+    UIMenuItem *menuBold = [[UIMenuItem alloc] initWithTitle:@"Bold" action:@selector(boldText:)];
+    UIMenuItem *menuItalic = [[UIMenuItem alloc] initWithTitle:@"Italic" action:@selector(italicText:)];
+    UIMenuItem *menuUnderline = [[UIMenuItem alloc] initWithTitle:@"Underline" action:@selector(underlineText:)];
+
+    [[UIMenuController sharedMenuController] setMenuItems:[NSArray arrayWithObjects:menuBold, menuItalic, menuUnderline, nil]];
 }
 
-- (void)addBullets
+- (void)boldText:(id)selector
 {
-    
+    [self.detailDescriptionLabel toggleBoldface:self.detailDescriptionLabel.text];
+}
+
+- (void)italicText:(id)selector
+{
+    [self.detailDescriptionLabel toggleItalics:self.detailDescriptionLabel.text];
+}
+
+-(void)underlineText:(id)selector
+{
+    [self.detailDescriptionLabel toggleUnderline:self.detailDescriptionLabel.text];
 }
 
 - (IBAction)shareButton:(id)sender
