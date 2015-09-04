@@ -10,33 +10,33 @@
 #import <CoreText/CoreText.h>
 
 @interface DetailViewController ()
+
 - (IBAction)shareButton:(id)sender;
-@property (strong, nonatomic)UIImage *chosenImage;
+
 @end
 
 @implementation DetailViewController
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(Note *)newDetailItem {
+- (void)setDetailItem:(Note *)newDetailItem
+{
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
-            
-        // Update the view.
         [self configureView];
     }
 }
 
-- (void)configureView {
-    // Update the user interface for the detail item.
+- (void)configureView
+{
     if (self.detailItem) {
         self.detailTextView.text = self.detailItem.note;
     }
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     [self configureView];
     [self.detailTextView becomeFirstResponder];
     [self menuItemAdditions];
@@ -49,12 +49,12 @@
     Note *currentNote = [[Note getAllNotes] objectAtIndex:[Note getCurrentNoteIndex]];
     currentNote.note = self.detailTextView.text;
     [[Note getAllNotes] setObject:currentNote atIndexedSubscript:[Note getCurrentNoteIndex]];
+    
     if ([self.detailTextView.text isEqualToString:@""]) {
         [[Note getAllNotes]removeObjectAtIndex:[Note getCurrentNoteIndex]];
     }
     [Note saveNotes];
     [[Note getTable] reloadData];
-    NSLog(@"%@",self.detailTextView.text);
 }
 
 - (void)menuItemAdditions
@@ -62,7 +62,6 @@
     UIMenuItem *menuBold = [[UIMenuItem alloc] initWithTitle:@"Bold" action:@selector(boldText:)];
     UIMenuItem *menuItalic = [[UIMenuItem alloc] initWithTitle:@"Italic" action:@selector(italicText:)];
     UIMenuItem *menuUnderline = [[UIMenuItem alloc] initWithTitle:@"Underline" action:@selector(underlineText:)];
-
     [[UIMenuController sharedMenuController] setMenuItems:[NSArray arrayWithObjects:menuBold, menuItalic, menuUnderline, nil]];
 }
 
