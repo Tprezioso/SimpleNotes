@@ -12,6 +12,7 @@
 static NSInteger currentNoteIndex = -1;
 static NSMutableArray *allNotes = nil;
 static UITableView *tableView;
+static UIImage *image;
 
 @implementation Note
 
@@ -54,7 +55,9 @@ static UITableView *tableView;
 + (void)saveNotes
 {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:allNotes];
+    NSData *imageSaved = [NSKeyedArchiver archivedDataWithRootObject:image];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:kAllNotes];
+    [[NSUserDefaults standardUserDefaults] setObject:imageSaved forKey:kAllNotes];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

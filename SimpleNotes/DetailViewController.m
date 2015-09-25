@@ -92,31 +92,42 @@
     imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:imagePicker animated:YES completion:nil];
     
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.detailTextView.text];
-    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
-    textAttachment.image = [UIImage imageNamed:self.imagePickerFileName];
-    NSAttributedString *stringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
+//    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.detailTextView.text];
+//    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+//    textAttachment.image = [UIImage imageNamed:self.imagePickerFileName];
+//    NSAttributedString *stringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
+//    [attributedString replaceCharactersInRange:NSMakeRange(2, 1) withAttributedString:stringWithImage];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    self.imageview.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+//    [picker dismissViewControllerAnimated:YES completion:nil];
+//    self.imageview.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+//    
+//    NSURL *refURL = [info valueForKey:UIImagePickerControllerReferenceURL];
+//    
+//    // define the block to call when we get the asset based on the url (below)
+//    ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *imageAsset)
+//    {
+//        ALAssetRepresentation *imageRep = [imageAsset defaultRepresentation];
+//        NSLog(@"[imageRep filename] : %@", [imageRep filename]);
+//        self.imagePickerFileName = [imageRep filename];
+//    };
+//    
+//    // get the asset library and fetch the asset based on the ref url (pass in block above)
+//    ALAssetsLibrary* assetslibrary = [[ALAssetsLibrary alloc] init];
+//    [assetslibrary assetForURL:refURL resultBlock:resultblock failureBlock:nil];
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.imageview.image = chosenImage;
     
-    NSURL *refURL = [info valueForKey:UIImagePickerControllerReferenceURL];
+    [picker dismissViewControllerAnimated:YES completion:NULL];
     
-    // define the block to call when we get the asset based on the url (below)
-    ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *imageAsset)
-    {
-        ALAssetRepresentation *imageRep = [imageAsset defaultRepresentation];
-        NSLog(@"[imageRep filename] : %@", [imageRep filename]);
-        self.imagePickerFileName = [imageRep filename];
-    };
-    
-    // get the asset library and fetch the asset based on the ref url (pass in block above)
-    ALAssetsLibrary* assetslibrary = [[ALAssetsLibrary alloc] init];
-    [assetslibrary assetForURL:refURL resultBlock:resultblock failureBlock:nil];
-    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.detailTextView.text];
+    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+    textAttachment.image = self.imageview.image; //[UIImage imageNamed:self.imagePickerFileName];
+    NSAttributedString *stringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
+    [attributedString replaceCharactersInRange:NSMakeRange(2, 1) withAttributedString:stringWithImage];
+
 }
 
 - (IBAction)shareButton:(id)sender
