@@ -8,9 +8,12 @@
 
 #import "DetailViewController.h"
 #import <CoreText/CoreText.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface DetailViewController ()
 
+@property (strong, nonatomic) UIImageView *imageview;
+@property (strong, nonatomic) NSString *imagePickerFileName;
 - (IBAction)shareButton:(id)sender;
 
 @end
@@ -83,6 +86,36 @@
 
 - (void)addImage:(id)selector
 {
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    imagePicker.allowsEditing = YES;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:imagePicker animated:YES completion:nil];
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.detailTextView.text];
+    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+    textAttachment.image = [UIImage imageNamed:self.imagePickerFileName];
+    NSAttributedString *stringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    self.imageview.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    
+    NSURL *refURL = [info valueForKey:UIImagePickerControllerReferenceURL];
+    
+    // define the block to call when we get the asset based on the url (below)
+    ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *imageAsset)
+    {
+        ALAssetRepresentation *imageRep = [imageAsset defaultRepresentation];
+        NSLog(@"[imageRep filename] : %@", [imageRep filename]);
+        self.imagePickerFileName = [imageRep filename];
+    };
+    
+    // get the asset library and fetch the asset based on the ref url (pass in block above)
+    ALAssetsLibrary* assetslibrary = [[ALAssetsLibrary alloc] init];
+    [assetslibrary assetForURL:refURL resultBlock:resultblock failureBlock:nil];
     
 }
 
