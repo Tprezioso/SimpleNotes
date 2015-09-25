@@ -16,6 +16,7 @@
 		9F62E1251B94DCAE00DDAD24 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F62E1231B94DCAE00DDAD24 /* LaunchScreen.xib */; };
 		9F62E1311B94DCAE00DDAD24 /* SimpleNotesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F62E1301B94DCAE00DDAD24 /* SimpleNotesTests.m */; };
 		9F62E13C1B94DE3C00DDAD24 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F62E13B1B94DE3C00DDAD24 /* Note.m */; };
+		9FF3CF661BB5BD9300515686 /* placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF3CF651BB5BD9300515686 /* placeholderImage.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		9F62E13A1B94DE3C00DDAD24 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		9F62E13B1B94DE3C00DDAD24 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		9F62E13D1B94F30000DDAD24 /* SimpleNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SimpleNotes.entitlements; sourceTree = "<group>"; };
+		9FF3CF651BB5BD9300515686 /* placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				9F62E11E1B94DCAD00DDAD24 /* Main.storyboard */,
 				9F62E1211B94DCAE00DDAD24 /* Images.xcassets */,
 				9F62E1231B94DCAE00DDAD24 /* LaunchScreen.xib */,
+				9FF3CF651BB5BD9300515686 /* placeholderImage.png */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F62E1201B94DCAD00DDAD24 /* Main.storyboard in Resources */,
+				9FF3CF661BB5BD9300515686 /* placeholderImage.png in Resources */,
 				9F62E1251B94DCAE00DDAD24 /* LaunchScreen.xib in Resources */,
 				9F62E1221B94DCAE00DDAD24 /* Images.xcassets in Resources */,
 			);

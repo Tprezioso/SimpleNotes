@@ -122,12 +122,20 @@
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.detailTextView.text];
-    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
-    textAttachment.image = self.imageview.image; //[UIImage imageNamed:self.imagePickerFileName];
-    NSAttributedString *stringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
-    [attributedString replaceCharactersInRange:NSMakeRange(2, 1) withAttributedString:stringWithImage];
-
+//    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.detailTextView.text];
+//    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+//    textAttachment.image = [UIImage imageNamed:@"placeholderImage.png"];
+// //self.imageview.image;
+//    NSAttributedString *stringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
+//    [attributedString replaceCharactersInRange:NSMakeRange(2, 1) withAttributedString:stringWithImage];
+   UIImageView *imageView = [UIImageView new];
+    [imageView setImage:[UIImage imageNamed:@"placeholderImage.png"]];
+    CGRect aRect = CGRectMake(0, 0, 100, 100);
+    [imageView setFrame:aRect];
+    
+    UIBezierPath *exclusionPath = [UIBezierPath bezierPathWithRect:aRect];
+    self.detailTextView.textContainer.exclusionPaths = @[exclusionPath];
+    [self.detailTextView addSubview:imageView];
 }
 
 - (IBAction)shareButton:(id)sender
