@@ -62,7 +62,8 @@
     UIMenuItem *menuBold = [[UIMenuItem alloc] initWithTitle:@"Bold" action:@selector(boldText:)];
     UIMenuItem *menuItalic = [[UIMenuItem alloc] initWithTitle:@"Italic" action:@selector(italicText:)];
     UIMenuItem *menuUnderline = [[UIMenuItem alloc] initWithTitle:@"Underline" action:@selector(underlineText:)];
-    [[UIMenuController sharedMenuController] setMenuItems:[NSArray arrayWithObjects:menuBold, menuItalic, menuUnderline, nil]];
+    UIMenuItem *menuImage = [[UIMenuItem alloc] initWithTitle:@"Image" action:@selector(addImage:)];
+    [[UIMenuController sharedMenuController] setMenuItems:[NSArray arrayWithObjects:menuBold, menuItalic, menuUnderline, menuImage, nil]];
 }
 
 - (void)boldText:(id)selector
@@ -78,6 +79,11 @@
 - (void)underlineText:(id)selector
 {
     [self.detailTextView toggleUnderline:self.detailTextView.text];
+}
+
+- (void)addImage:(id)selector
+{
+    
 }
 
 - (IBAction)shareButton:(id)sender
